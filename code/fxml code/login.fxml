@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../CSS%20code/login_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loginControllers">
+   <children>
+      <AnchorPane fx:id="mainForm" prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <AnchorPane id="leftSide" maxHeight="600.0" maxWidth="300.0" minHeight="600.0" minWidth="300.0" prefHeight="600.0" prefWidth="300.0" stylesheets="@../CSS%20code/login_style.css">
+               <children>
+                  <FontAwesomeIconView glyphName="GLOBE" layoutX="43.0" layoutY="228.0" selectionFill="#ffffff00" size="250">
+                     <font>
+                        <Font size="7.0" />
+                     </font></FontAwesomeIconView>
+                  <Label id="titleAgencyLabel" layoutX="34.0" layoutY="308.0" prefHeight="119.0" prefWidth="232.0" stylesheets="@../CSS%20code/login_style.css" text="STELLATS TRAVEL AGENCY" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="rightSide" layoutX="300.0" maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" stylesheets="@../CSS%20code/login_style.css">
+               <children>
+                  <TextField fx:id="usernameTF" layoutX="143.0" layoutY="244.0" prefHeight="36.0" prefWidth="350.0" promptText="username" styleClass="textfield" stylesheets="@../CSS%20code/login_style.css" />
+                  <PasswordField fx:id="passwordTF" layoutX="143.0" layoutY="284.0" prefHeight="36.0" prefWidth="350.0" promptText="password" styleClass="textfield" stylesheets="@../CSS%20code/login_style.css" />
+                  <Label layoutX="242.0" layoutY="165.0" text="ΣΥΝΔΕΣΗ">
+                     <font>
+                        <Font name="Jokerman" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button id="connectBtn" fx:id="loginBtn" defaultButton="true" layoutX="143.0" layoutY="387.0" mnemonicParsing="false" onAction="#connectButtonClicked" prefWidth="350.0" stylesheets="@../CSS%20code/login_style.css" text="Σύνδεση" />
+                  <Button id="cancelBtn" fx:id="cancelBtn" cancelButton="true" layoutX="143.0" layoutY="430.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefWidth="350.0" stylesheets="@../CSS%20code/login_style.css" text="Ακύρωση" />
+                  <Button id="exitBtn" fx:id="exitBtn" layoutX="574.0" layoutY="2.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="10.0" prefWidth="10.0" stylesheets="@../CSS%20code/login_style.css">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CLOSE" size="10" />
+                     </graphic>
+                  </Button>
+                  <Label id="notificationLabel" fx:id="notificationLabel" alignment="TOP_LEFT" layoutX="143.0" layoutY="320.0" prefHeight="47.0" prefWidth="350.0" stylesheets="@../CSS%20code/login_style.css" text="Label" wrapText="true" />
+                  <FontAwesomeIconView glyphName="PLANE" layoutX="271.0" layoutY="148.0" size="120" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

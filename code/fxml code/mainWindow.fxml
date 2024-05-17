@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboardContollers">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="900.0">
+               <top>
+                  <Pane id="header" prefHeight="25.0" prefWidth="900.0" stylesheets="@../CSS%20code/dasboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <FontAwesomeIconView glyphName="PLANE" layoutX="11.0" layoutY="19.0" size="20" />
+                        <Label layoutX="35.0" layoutY="-2.0" text="Stellats Agency">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button id="exitBtn" fx:id="exitButton" layoutX="880.0" layoutY="2.0" minWidth="16.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="20.0" prefWidth="20.0" stylesheets="@../CSS%20code/dasboard.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CLOSE" size="10" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </top>
+               <left>
+                  <Pane id="leftSide" prefHeight="575.0" prefWidth="175.0" stylesheets="@../CSS%20code/dasboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="110.0" prefWidth="175.0" text="Καλωσήρθες," textAlignment="CENTER">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="148.0" prefHeight="36.0" prefWidth="175.0" text="USER" textAlignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="tripButton" layoutY="228.0" mnemonicParsing="false" onAction="#tripButtonPressed" prefHeight="20.0" prefWidth="175.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="MENOY ΤΑΞΙΔΙΩΝ" />
+                        <Button fx:id="workerButton" layoutY="257.0" mnemonicParsing="false" onAction="#workerButtonPressed" prefHeight="20.0" prefWidth="175.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="ΜΕΝΟΥ ΥΠΑΛΛΗΛΩΝ" />
+                        <Button fx:id="signoutButton" layoutX="12.0" layoutY="532.0" mnemonicParsing="false" onAction="#logout" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="SIGN_OUT" size="20" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="offerButton" layoutY="290.0" mnemonicParsing="false" onAction="#offerButtonPressed" prefHeight="20.0" prefWidth="175.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="ΜΕΝΟΥ ΠΡΟΣΦΟΡΩΝ" />
+                        <Button fx:id="newReservationButton" layoutY="322.0" mnemonicParsing="false" onAction="#reservationButtonPressed" prefHeight="20.0" prefWidth="175.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="ΝΕΑ ΚΡΑΤΗΣΗ" />
+                        <Button fx:id="settingsButton" layoutX="129.0" layoutY="532.0" mnemonicParsing="false" onAction="#settingsButtonPressed" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="COG" size="20" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="dashbordButton" layoutX="49.0" layoutY="9.0" mnemonicParsing="false" onAction="#dashboardBottonClicked" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="USER" size="80" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane id="rightSide" fx:id="dashboard" prefHeight="575.0" prefWidth="725.0" stylesheets="@../CSS%20code/dasboard.css" visible="false">
+                           <children>
+                              <HBox layoutX="3.0" layoutY="81.0" prefHeight="132.0" prefWidth="725.0">
+                                 <children>
+                                    <AnchorPane prefHeight="138.0" prefWidth="220.0">
+                                       <children>
+                                          <Label layoutY="14.0" prefHeight="30.0" prefWidth="220.0" text="Συνολικό κέρδος (€)">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="profit" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="54.0" prefHeight="78.0" prefWidth="220.0" text="1500,00" textAlignment="RIGHT" textOverrun="CENTER_ELLIPSIS">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" />
+                                    <AnchorPane prefHeight="138.0" prefWidth="220.0">
+                                       <children>
+                                          <Label layoutY="14.0" prefWidth="220.0" text="Συνολικά έσοδα (€)">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="incomes" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="54.0" prefHeight="78.0" prefWidth="220.0" text="1500,00" textAlignment="RIGHT" textOverrun="CENTER_ELLIPSIS">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0" />
+                                    <AnchorPane prefHeight="138.0" prefWidth="292.0">
+                                       <children>
+                                          <Label layoutY="14.0" prefHeight="30.0" prefWidth="220.0" text="Συνολικά έξοδα (€)">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="outcomes" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="54.0" prefHeight="78.0" prefWidth="220.0" text="1500,00" textAlignment="RIGHT" textOverrun="CENTER_ELLIPSIS">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutY="328.0" prefHeight="100.0" prefWidth="725.0">
+                                 <children>
+                                    <AnchorPane fx:id="workers_summary" prefHeight="152.0" prefWidth="178.0">
+                                       <children>
+                                          <Label alignment="CENTER" layoutY="14.0" prefHeight="30.0" prefWidth="178.0" text="Υπάλληλοι">
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox layoutY="44.0" prefHeight="108.0" prefWidth="178.0">
+                                             <children>
+                                                <VBox prefHeight="176.0" prefWidth="117.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="117.0" text="Οδηγοί">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="18.0" prefWidth="117.0" text="Ξεναγοί">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="18.0" prefWidth="117.0" text="Λογιστές">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="21.0" prefWidth="117.0" text="Διαχειριστές">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label prefHeight="21.0" prefWidth="117.0" text="Επιμελητές">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="176.0" prefWidth="61.0">
+                                                   <children>
+                                                      <Label fx:id="drivers_number_summary" alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="61.0" text="7">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="guide_number_summary" alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="61.0" text="6">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="accounting_number_summary" alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="61.0" text="5">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="admin_number_summary" alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="61.0" text="4">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="logistics_number_summary" alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="21.0" prefWidth="61.0" text="3">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="174.0" prefWidth="228.0" />
+                                    <AnchorPane prefHeight="174.0" prefWidth="270.0">
+                                       <children>
+                                          <Label alignment="CENTER" layoutY="14.0" prefHeight="36.0" prefWidth="250.0" text="Πλήθος Προορισμών">
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="destinationNumber" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="54.0" prefHeight="78.0" prefWidth="250.0" text="7" textAlignment="RIGHT" textOverrun="CENTER_ELLIPSIS">
+                                             <font>
+                                                <Font size="45.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="174.0" prefWidth="228.0" />
+                                    <AnchorPane prefHeight="174.0" prefWidth="314.0">
+                                       <children>
+                                          <Label alignment="CENTER" layoutY="14.0" prefHeight="36.0" prefWidth="250.0" text="Πλήθος Κρατήσεων">
+                                             <font>
+                                                <Font size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="reservationNumber" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="54.0" prefHeight="78.0" prefWidth="250.0" text="9" textAlignment="RIGHT" textOverrun="CENTER_ELLIPSIS">
+                                             <font>
+                                                <Font size="45.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <AnchorPane fx:id="travelMenu" prefHeight="575.0" prefWidth="575.0" visible="false">
+                           <children>
+                              <TabPane prefHeight="575.0" prefWidth="725.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                 <Tab text="Trips">
+                                    <content>
+                                      <AnchorPane id="rightSide" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../CSS%20code/dasboard.css">
+                                             <children>
+                                                <TableView fx:id="tableTrip" layoutX="57.0" layoutY="305.0" prefHeight="227.0" prefWidth="600.0" styleClass="table" stylesheets="@../CSS%20code/dasboard.css">
+                                                  <columns>
+                                                    <TableColumn fx:id="tripidTableTrips" prefWidth="75.0" styleClass="tableColumn" text="trip id" />
+                                                    <TableColumn fx:id="departureTableTrips" prefWidth="75.0" text="departure" />
+                                                      <TableColumn fx:id="returnTableTrips" prefWidth="75.0" text="return" />
+                                                      <TableColumn fx:id="seatsTableTrips" prefWidth="75.0" text="seats" />
+                                                      <TableColumn fx:id="priceTableTrips" prefWidth="75.0" text="price" />
+                                                      <TableColumn fx:id="branchTableTrip" prefWidth="75.0" text="branch" />
+                                                      <TableColumn fx:id="guideTableTrip" prefWidth="75.0" text="guide" />
+                                                      <TableColumn fx:id="driverTableTrips" prefWidth="75.0" text="driver" />
+                                                  </columns>
+                                                </TableView>
+                                                <TextField fx:id="seatTextTrip" layoutX="579.0" layoutY="97.0" prefHeight="26.0" prefWidth="70.0" promptText="seats" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <TextField fx:id="costTextTrips" layoutX="462.0" layoutY="97.0" prefHeight="26.0" prefWidth="74.0" promptText="cost" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <DatePicker fx:id="departureDateTrips" layoutX="163.0" layoutY="97.0" prefHeight="26.0" prefWidth="117.0" promptText="departure" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <DatePicker fx:id="returnDateTrip" layoutX="309.0" layoutY="97.0" prefHeight="26.0" prefWidth="117.0" promptText="return" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="tripidListTrips" layoutX="53.0" layoutY="97.0" prefHeight="26.0" prefWidth="84.0" promptText="trip id" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="branchListTrip" layoutX="52.0" layoutY="161.0" prefHeight="26.0" prefWidth="163.0" promptText="branch" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="guideListTrips" layoutX="269.0" layoutY="161.0" prefWidth="163.0" promptText="guide" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="driverListTrips" layoutX="497.0" layoutY="161.0" prefWidth="163.0" promptText="driver" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <Button id="search" fx:id="searchBottonTrip" layoutX="81.0" layoutY="247.0" mnemonicParsing="false" onAction="#searchTrip" prefHeight="26.0" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="search" />
+                                                <Button id="clear" fx:id="clearBottonTrip" layoutX="493.0" layoutY="247.0" mnemonicParsing="false" onAction="#clearBottonTrips" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="clear" />
+                                                <Button id="add" fx:id="addBottonTrip" layoutX="292.0" layoutY="246.0" mnemonicParsing="false" onAction="#addTrip" prefHeight="26.0" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="add" />
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="14.0" prefHeight="54.0" prefWidth="506.0" text="Please enter your trip details">
+                                                   <font>
+                                                      <Font name="Baskerville Old Face" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab fx:id="eventTabTrip" text="Events">
+                                    <content>
+                                      <AnchorPane id="rightSide" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../CSS%20code/dasboard.css">
+                                             <children>
+                                                <Button id="search" fx:id="searchBottonEvents" layoutX="47.0" layoutY="245.0" mnemonicParsing="false" onAction="#searchEvents" prefHeight="26.0" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="search" />
+                                                <Button id="add" fx:id="addBottonEvents" layoutX="291.0" layoutY="248.0" mnemonicParsing="false" onAction="#addEventsClicked" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="add" />
+                                                <Button id="clear" fx:id="clearBottonEvents" layoutX="536.0" layoutY="245.0" mnemonicParsing="false" onAction="#clearEventsClicked" prefHeight="26.0" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="clear" />
+                                                <DatePicker fx:id="departurePickerEvents" layoutX="250.0" layoutY="65.0" prefHeight="26.0" prefWidth="162.0" promptText="departure" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <DatePicker fx:id="returnPickerEvents" layoutX="471.0" layoutY="64.0" prefHeight="26.0" prefWidth="154.0" promptText="return" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="tripidListEvents" layoutX="100.0" layoutY="65.0" prefHeight="26.0" prefWidth="84.0" promptText="trip id" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <TextArea fx:id="descriptionTextEvents" layoutX="47.0" layoutY="107.0" prefHeight="117.0" prefWidth="640.0" promptText="Description" styleClass="TEXT" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <Label alignment="CENTER" layoutX="101.0" layoutY="7.0" prefHeight="42.0" prefWidth="528.0" text="Please enter your event details">
+                                                   <font>
+                                                      <Font name="Baskerville Old Face" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <TableView fx:id="tableEvents" layoutX="47.0" layoutY="305.0" prefHeight="227.0" prefWidth="640.0" styleClass="table" stylesheets="@../CSS%20code/dasboard.css">
+                                                   <columns>
+                                                      <TableColumn fx:id="tripIdTableEvents" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="trip id" />
+                                                      <TableColumn fx:id="departureTableEvents" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="departure" />
+                                                      <TableColumn fx:id="returnTableEvents" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="return" />
+                                                      <TableColumn fx:id="descriptionTableEvents" prefWidth="413.6000061035156" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="description" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Destinations">
+                                      <content>
+                                        <AnchorPane id="rightSide" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../CSS%20code/dasboard.css">
+                                             <children>
+                                                <TableView fx:id="tableDest" layoutX="8.0" layoutY="305.0" prefHeight="227.0" prefWidth="704.0" styleClass="table" stylesheets="@../CSS%20code/dasboard.css">
+                                                   <columns>
+                                                      <TableColumn fx:id="tripidTableDest" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="trip id" />
+                                                      <TableColumn fx:id="nameTableDest" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="name" />
+                                                      <TableColumn fx:id="departureTableDest" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="departure" />
+                                                      <TableColumn fx:id="arrivalTableDest" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="arrival" />
+                                                      <TableColumn fx:id="typeTableDest" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="type" />
+                                                      <TableColumn fx:id="locationTableDest" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="location" />
+                                                      <TableColumn fx:id="languageTableDest" prefWidth="75.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="language" />
+                                                      <TableColumn fx:id="descriptionTableDest" prefWidth="179.0" style="-fx-background-color: linear-gradient(to right, #F2D7D9, #fff);" text="description" />
+                                                   </columns>
+                                                </TableView>
+                                                <DatePicker fx:id="departurePickerDest" layoutX="342.0" layoutY="65.0" prefHeight="20.0" prefWidth="154.0" promptText="departure" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <DatePicker fx:id="arrivalPickerDest" layoutX="515.0" layoutY="64.0" prefHeight="26.0" prefWidth="154.0" promptText="arrival" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="tripidListDest" layoutX="71.0" layoutY="65.0" prefHeight="26.0" prefWidth="84.0" promptText="trip id" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <TextArea fx:id="descriptionTextDest" layoutX="9.0" layoutY="163.0" prefHeight="123.0" prefWidth="523.0" promptText="Description" styleClass="TEXT" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <TextField fx:id="nameFieldDest" layoutX="170.0" layoutY="65.0" promptText="name" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="typeListDest" layoutX="113.0" layoutY="110.0" prefHeight="26.0" prefWidth="84.0" promptText="type" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="languageListDest" layoutX="482.0" layoutY="110.0" prefHeight="26.0" prefWidth="109.0" promptText="language" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <ComboBox fx:id="locationListDest" layoutX="287.0" layoutY="110.0" prefHeight="26.0" prefWidth="109.0" promptText="location" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <Button id="search" fx:id="searchBottonDest" layoutX="561.0" layoutY="163.0" mnemonicParsing="false" onAction="#searchDest" prefHeight="26.0" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="search" />
+                                                <Button id="add" fx:id="addBottonDest" layoutX="561.0" layoutY="211.0" mnemonicParsing="false" onAction="#addDest" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="add" />
+                                                <Button fx:id="clearBottonDest" layoutX="561.0" layoutY="260.0" mnemonicParsing="false" onAction="#clearDest" prefHeight="26.0" prefWidth="150.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="clear" />
+                                                <Label alignment="CENTER" layoutX="96.0" layoutY="14.0" prefHeight="42.0" prefWidth="528.0" text="Please enter your destination details">
+                                                   <font>
+                                                      <Font name="Baskerville Old Face" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                        <Pane fx:id="workersManagerMenu" prefHeight="575.0" prefWidth="725.0" visible="false">
+                           <children>
+                              <TabPane prefHeight="575.0" prefWidth="725.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="ADD">
+                                    <content>
+                                      <AnchorPane id="rightSide" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../CSS%20code/dasboard.css">
+                                             <children>
+                                                <HBox prefHeight="174.0" prefWidth="190.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="60.0">
+                                                         <children>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="Name">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="Lastname">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="ID number">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="Salary">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="Branch">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="Type">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox prefHeight="95.0" prefWidth="123.0">
+                                                         <children>
+                                                            <TextField fx:id="nameAddWorker" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                            <TextField fx:id="lnameAddWorker" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                            <TextField fx:id="idAddWorker" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                            <TextField fx:id="salaryAddWorker" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                            <ComboBox fx:id="branchAddWorker" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </ComboBox>
+                                                            <ComboBox fx:id="typeAddWorker" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="5.0" top="5.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <Label fx:id="guideLabel" layoutX="173.0" layoutY="217.0" text="GUIDE" />
+                                                <Label fx:id="driverLabel" layoutX="528.0" layoutY="20.0" text="DRIVER" />
+                                                <Label fx:id="adminLabel" layoutX="528.0" layoutY="217.0" text="ADMIN" />
+                                                <TextArea fx:id="cvAddWorker" layoutX="14.0" layoutY="259.0" prefHeight="157.0" prefWidth="353.0" promptText="CV" styleClass="TEXT" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <TextField fx:id="languageAddWorker" layoutX="83.0" layoutY="445.0" prefHeight="25.0" prefWidth="211.0" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css" />
+                                                <Label fx:id="languageLabel" layoutX="14.0" layoutY="445.0" prefHeight="25.0" prefWidth="67.0" text="Language" />
+                                                <HBox layoutX="448.0" layoutY="58.0" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Label fx:id="licenseLabel" prefHeight="25.0" prefWidth="67.0" text="License">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label fx:id="routeLabel" prefHeight="25.0" prefWidth="67.0" text="Route">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label fx:id="experienceLabel" prefHeight="25.0" prefWidth="67.0" text="Experience">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0">
+                                                         <children>
+                                                            <ComboBox fx:id="licenseAddWorker" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </ComboBox>
+                                                            <ComboBox fx:id="routeAddWorker" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </ComboBox>
+                                                            <TextField fx:id="experienceAddWorker" prefHeight="25.0" prefWidth="211.0" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="398.0" layoutY="288.0" prefHeight="100.0" prefWidth="300.0">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="50.0">
+                                                         <children>
+                                                            <Label fx:id="typeLabel" prefHeight="25.0" prefWidth="67.0" text="Type">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label fx:id="branchLabel" prefHeight="25.0" prefWidth="67.0" text="Branch">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                            <Label fx:id="diplomaLabel" prefHeight="25.0" prefWidth="67.0" text="Diploma">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox prefHeight="100.0" prefWidth="250.0">
+                                                         <children>
+                                                            <ComboBox fx:id="adminTypeAddWorker" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </ComboBox>
+                                                            <ComboBox fx:id="adminBranchAddWorker" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </ComboBox>
+                                                            <TextField fx:id="diplomaAddWorker" prefHeight="25.0" prefWidth="200.0" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css">
+                                                               <VBox.margin>
+                                                                  <Insets bottom="2.0" top="2.0" />
+                                                               </VBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <Separator layoutY="206.0" prefHeight="0.0" prefWidth="725.0" />
+                                                <Separator layoutX="381.0" orientation="VERTICAL" prefHeight="551.0" prefWidth="6.0" />
+                                                <Button id="add" fx:id="addButtonAddWorker" defaultButton="true" layoutX="244.0" layoutY="58.0" mnemonicParsing="false" onAction="#addWorkerButtonClicked" prefWidth="100.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="ADD" />
+                                                <Button fx:id="clearButtonAddWorker" cancelButton="true" layoutX="244.0" layoutY="114.0" mnemonicParsing="false" onAction="#clearButtonWorkersClicked" prefWidth="100.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="CLEAR" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="SEE">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TableView fx:id="tableWorker" layoutX="34.0" layoutY="14.0" prefHeight="546.0" prefWidth="725.0" styleClass="table" stylesheets="@../CSS%20code/dasboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="atColumnWorker" text="AT" />
+                                                    <TableColumn fx:id="nameColumnWorker" prefWidth="100.0" text="NAME" />
+                                                      <TableColumn fx:id="lnameColumnWorker" prefWidth="140.0" text="LASTNAME" />
+                                                      <TableColumn fx:id="salaryColumnWorker" prefWidth="98.0" text="SALARY" />
+                                                      <TableColumn fx:id="branchColumnWorker" prefWidth="171.0" text="BRANCH" />
+                                                      <TableColumn fx:id="typeColumnWorker" prefWidth="136.0" text="WORKER TYPE" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </Pane>
+                        <Pane id="rightSide" fx:id="addOffersMenu" prefHeight="575.0" prefWidth="725.0" stylesheets="@../CSS%20code/dasboard.css" visible="false">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="725.0" text="Please enter your offer details">
+                                 <font>
+                                    <Font name="Baskerville Old Face" size="36.0" />
+                                 </font>
+                              </Label>
+                              <HBox layoutY="80.0" prefHeight="100.0" prefWidth="725.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="60.0">
+                                       <children>
+                                          <Label maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" prefHeight="25.0" prefWidth="62.0" text="ID">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" prefHeight="25.0" prefWidth="62.0" text="start">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" prefHeight="25.0" prefWidth="62.0" text="finish">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" prefHeight="25.0" prefWidth="62.0" text="cost">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label maxHeight="25.0" maxWidth="62.0" minHeight="25.0" minWidth="62.0" prefHeight="25.0" prefWidth="62.0" text="destination">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="150.0">
+                                       <children>
+                                          <ComboBox fx:id="idListOffer" prefHeight="0.0" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </ComboBox>
+                                          <DatePicker fx:id="startDatePickerOffer" prefHeight="0.0" prefWidth="150.0" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </DatePicker>
+                                          <DatePicker fx:id="finishDatePickerOffer" prefHeight="0.0" prefWidth="150.0" styleClass="datepicker" stylesheets="@../CSS%20code/dasboard.css">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </DatePicker>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                          <TextField fx:id="costTextOffer" maxWidth="150.0" minWidth="150.0" prefHeight="10.0" prefWidth="150.0" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                          <ComboBox fx:id="destinationListOffer" prefHeight="0.0" prefWidth="150.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css">
+                                             <VBox.margin>
+                                                <Insets bottom="2.0" top="2.0" />
+                                             </VBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </VBox>
+                                    <AnchorPane prefHeight="145.0" prefWidth="203.0" />
+                                    <VBox prefHeight="145.0" prefWidth="100.0">
+                                       <children>
+                                          <Button id="search" fx:id="serachButtonOffer" defaultButton="true" mnemonicParsing="false" onAction="#searchOfferBottonClicked" prefWidth="100.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="SEARCH" />
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                          <Button id="add" fx:id="addButtonOffer" mnemonicParsing="false" onAction="#addOfferBottonClicked" prefWidth="100.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="ADD" />
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                          <Button fx:id="clearButtonOffer" cancelButton="true" mnemonicParsing="false" onAction="#clearBottonOffer" prefWidth="100.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="CLEAR" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" />
+                                 </padding>
+                              </HBox>
+                              <TableView fx:id="offerTable" layoutX="50.0" layoutY="290.0" prefHeight="235.0" prefWidth="625.0" styleClass="table" stylesheets="@../CSS%20code/dasboard.css">
+                                <columns>
+                                  <TableColumn fx:id="idColumnOffer" prefWidth="125.0" text="id" />
+                                  <TableColumn fx:id="startColumnOffer" prefWidth="125.0" text="start" />
+                                    <TableColumn fx:id="finishColumnOffer" prefWidth="125.0" text="finish" />
+                                    <TableColumn fx:id="costColumnOffer" prefWidth="125.0" text="cost" />
+                                    <TableColumn fx:id="destinationColumnOffer" prefWidth="125.0" text="destination" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="reservationMenu" prefHeight="575.0" prefWidth="725.0">
+                           <children>
+                              <TabPane prefHeight="575.0" prefWidth="725.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="RESERVATION">
+                                    <content>
+                                      <AnchorPane id="rightSide" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../CSS%20code/dasboard.css">
+                                             <children>
+                                                <VBox prefHeight="200.0" prefWidth="215.0">
+                                                   <children>
+                                                      <HBox prefHeight="25.0" prefWidth="205.0">
+                                                         <children>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="id" />
+                                                            <ComboBox fx:id="idReservationRes" prefWidth="145.0" styleClass="list" />
+                                                         </children>
+                                                      </HBox>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <HBox prefHeight="25.0" prefWidth="205.0">
+                                                         <children>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="name" />
+                                                            <TextField fx:id="nameFieldReservationRes" prefWidth="145.0" styleClass="textField" />
+                                                         </children>
+                                                      </HBox>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <HBox prefHeight="25.0" prefWidth="205.0">
+                                                         <children>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="lastname" />
+                                                            <TextField fx:id="lnameFieldReservationRes" prefWidth="145.0" styleClass="textField" />
+                                                         </children>
+                                                      </HBox>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <HBox prefHeight="25.0" prefWidth="205.0">
+                                                         <children>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="age" />
+                                                            <ComboBox fx:id="ageListReservationRes" prefWidth="145.0" styleClass="list" />
+                                                         </children>
+                                                      </HBox>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <HBox prefHeight="25.0" prefWidth="205.0">
+                                                         <children>
+                                                            <Label prefHeight="25.0" prefWidth="60.0" text="num seat" />
+                                                            <TextField fx:id="numSeatFielsReservationRes" prefWidth="145.0" styleClass="textField" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="10.0" top="10.0" />
+                                                   </padding>
+                                                </VBox>
+                                                <Button layoutX="10.0" layoutY="343.0" mnemonicParsing="false" onAction="#deleteReservationRes" prefWidth="210.0" styleClass="botton" text="delete" />
+                                                <Button id="clear" layoutX="120.0" layoutY="314.0" mnemonicParsing="false" onAction="#clearReservationRes" prefWidth="100.0" styleClass="botton" text="clear" />
+                                                <Button id="add" layoutX="10.0" layoutY="314.0" mnemonicParsing="false" onAction="#addReservationRes" prefWidth="100.0" styleClass="botton" text="add" />
+                                                <ImageView fx:id="imageReservationRes" fitHeight="523.0" fitWidth="448.0" layoutX="264.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                                                <Label layoutX="24.0" layoutY="503.0" text="Αυτό είναι ένα ζουμπο-ρομποτ =&gt; " />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab fx:id="offersTabReservation" text="OFFERS">
+                                    <content>
+                                      <AnchorPane id="rightSide" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../CSS%20code/dasboard.css">
+                                             <children>
+                                                <Label fx:id="offid" layoutX="15.0" layoutY="29.0" prefHeight="25.0" text="offer id" />
+                                                <Label fx:id="offname" layoutX="15.0" layoutY="71.0" prefHeight="25.0" text="name" />
+                                                <Label fx:id="offdeposit" layoutX="15.0" layoutY="155.0" prefHeight="25.0" text="deposit" />
+                                                <Label fx:id="offlname" layoutX="15.0" layoutY="113.0" prefHeight="25.0" prefWidth="57.0" text="lastname" />
+                                                <ComboBox fx:id="offeridListRes" layoutX="71.0" layoutY="29.0" prefWidth="150.0" styleClass="list" />
+                                                <TextField fx:id="nameTextRes" layoutX="71.0" layoutY="71.0" styleClass="textField" />
+                                                <TextField fx:id="lnameTextRes" layoutX="71.0" layoutY="113.0" styleClass="textField" />
+                                                <TextField fx:id="depositTextRes" layoutX="70.0" layoutY="155.0" styleClass="textField" />
+                                                <Button id="add" fx:id="addResOfferButton" defaultButton="true" layoutX="324.0" layoutY="65.0" mnemonicParsing="false" onAction="#addResOffer" prefHeight="25.0" prefWidth="100.0" styleClass="botton" text="add" />
+                                                <Button fx:id="clearOfferResButton" layoutX="404.0" layoutY="110.0" mnemonicParsing="false" onAction="#clearOfferRes" prefWidth="100.0" styleClass="botton" text="clear" />
+                                                <Button id="search" fx:id="searchResOfferButton" layoutX="485.0" layoutY="65.0" mnemonicParsing="false" onAction="#searchReservationOffer" prefWidth="100.0" styleClass="botton" text="search" />
+                                                <TableView fx:id="offerResTable" layoutX="50.0" layoutY="259.0" prefHeight="247.0" prefWidth="625.0" styleClass="table">
+                                                  <columns>
+                                                    <TableColumn fx:id="idColumnRes" prefWidth="125.0" text="reservation id" />
+                                                    <TableColumn fx:id="nameColumnRes" prefWidth="125.0" text="name" />
+                                                      <TableColumn fx:id="lnameColumnRes" prefWidth="125.0" text="lastname" />
+                                                      <TableColumn fx:id="offeridColumnRes" prefWidth="125.0" text="offer id" />
+                                                      <TableColumn fx:id="depositColumnRes" prefWidth="125.0" text="deposit" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </Pane>
+                        <Pane id="rightSide" fx:id="userInformationScene" prefHeight="575.0" prefWidth="725.0" stylesheets="@../CSS%20code/dasboard.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView fx:id="TABLESET" layoutX="46.0" layoutY="294.0" prefHeight="200.0" prefWidth="625.0" styleClass="table">
+                                <columns>
+                                  <TableColumn fx:id="USERCOLUMNSET" prefWidth="75.0" text="USER" />
+                                  <TableColumn fx:id="ACTIONCOLUMNSET" prefWidth="79.5" text="ACTION" />
+                                    <TableColumn fx:id="TIMECOLUMNSET" prefWidth="150.5" text="TIME" />
+                                    <TableColumn fx:id="CHANGESCOLUMNSET" maxWidth="1.7976931348623157E308" prefWidth="319.5" text="CHANGES" />
+                                </columns>
+                              </TableView>
+                              <HBox layoutX="90.0" layoutY="33.0" prefHeight="100.0" prefWidth="500.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Label prefHeight="25.0" prefWidth="100.0" text="AT">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                          <Label prefHeight="25.0" prefWidth="100.0" text="name">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                          <Label prefHeight="25.0" prefWidth="100.0" text="lastname">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                          <Label prefHeight="25.0" prefWidth="100.0" text="salary">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                          <Label prefHeight="25.0" prefWidth="100.0" text="branch">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                          <Label prefHeight="25.0" prefWidth="100.0" text="password">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                          <Label prefHeight="25.0" prefWidth="100.0" text="IT from">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="167.0" prefWidth="143.0">
+                                       <children>
+                                          <TextField id="itTextField" fx:id="ATTEXTSET" editable="false" styleClass="textField">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></TextField>
+                                          <TextField id="itTextField" fx:id="NAMETEXTSET" editable="false" styleClass="textField">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></TextField>
+                                          <TextField id="itTextField" fx:id="LNAMETEXTSET" editable="false" styleClass="textField">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></TextField>
+                                          <TextField id="itTextField" fx:id="SALARYTEXTSET" styleClass="textField">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></TextField>
+                                          <TextField id="itTextField" fx:id="BRANCHTEXTSET" editable="false" styleClass="textField">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></TextField>
+                                          <PasswordField id="itTextField" fx:id="PASSTEXTSET" editable="false" styleClass="textField">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></PasswordField>
+                                          <Label fx:id="DATETEXTSET" prefHeight="25.0" prefWidth="100.0" text="Label">
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin></Label>
+                                       </children>
+                                    </VBox>
+                                    <AnchorPane prefHeight="167.0" prefWidth="99.0" />
+                                    <VBox prefHeight="181.0" prefWidth="160.0">
+                                       <children>
+                                          <AnchorPane prefHeight="150.0" prefWidth="160.0" />
+                                          <ComboBox fx:id="workersItComboBoxSettings" prefHeight="25.0" prefWidth="160.0" styleClass="list" stylesheets="@../CSS%20code/dasboard.css" />
+                                          <AnchorPane prefHeight="150.0" prefWidth="160.0" />
+                                          <PasswordField fx:id="passwordITSeettings" promptText="password" styleClass="textField" stylesheets="@../CSS%20code/dasboard.css" />
+                                          <AnchorPane prefHeight="150.0" prefWidth="200.0" />
+                                          <Button id="add" fx:id="createITSettings" mnemonicParsing="false" onAction="#createITbuttonClicked" prefHeight="25.0" prefWidth="160.0" styleClass="botton" stylesheets="@../CSS%20code/dasboard.css" text="create IT" />
+                                          <AnchorPane prefHeight="150.0" prefWidth="200.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Button id="search" fx:id="UPDATESET" layoutX="90.0" layoutY="250.0" mnemonicParsing="false" onAction="#updateButtonSettingsClicked" prefWidth="200.0" styleClass="botton" text="update" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children></AnchorPane>
+   </children>
+</StackPane>

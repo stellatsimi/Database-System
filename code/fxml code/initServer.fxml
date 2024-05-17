@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="initializeServerControllers">
+   <children>
+      <AnchorPane id="layout" prefHeight="500.0" prefWidth="700.0" stylesheets="@../CSS%20code/initServer_style.css">
+         <children>
+            <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="134.0" layoutY="52.0" prefHeight="31.0" prefWidth="451.0" text="Σύνδεση με την Βάση Δεδομένων">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="137.0" layoutY="158.0" prefHeight="20.0" prefWidth="98.0" text="Server IP">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TFserverip" focusTraversable="false" layoutX="251.0" layoutY="154.0" prefHeight="26.0" prefWidth="224.0" styleClass="textField" stylesheets="@../CSS%20code/initServer_style.css" />
+            <Label layoutX="487.0" layoutY="157.0" text="Port">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TFport" alignment="CENTER" focusTraversable="false" layoutX="524.0" layoutY="154.0" prefHeight="26.0" prefWidth="60.0" styleClass="textField" stylesheets="@../CSS%20code/initServer_style.css" />
+            <Label layoutX="137.0" layoutY="213.0" prefHeight="20.0" prefWidth="98.0" text="Database">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TFdatabase" focusTraversable="false" layoutX="251.0" layoutY="210.0" prefHeight="26.0" prefWidth="338.0" styleClass="textField" stylesheets="@../CSS%20code/initServer_style.css" />
+            <Label layoutX="137.0" layoutY="277.0" prefHeight="20.0" prefWidth="98.0" text="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="137.0" layoutY="246.0" prefHeight="20.0" prefWidth="98.0" text="Username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TFusername" layoutX="252.0" layoutY="243.0" prefHeight="26.0" prefWidth="338.0" styleClass="textField" stylesheets="@../CSS%20code/initServer_style.css" />
+            <PasswordField fx:id="TFpassword" layoutX="252.0" layoutY="274.0" prefHeight="26.0" prefWidth="338.0" styleClass="textField" stylesheets="@../CSS%20code/initServer_style.css" />
+            <Button id="connectBtn" fx:id="BTNconnect" defaultButton="true" layoutX="138.0" layoutY="366.0" mnemonicParsing="false" onAction="#connectButtonClicked" prefHeight="37.0" prefWidth="451.0" stylesheets="@../CSS%20code/initServer_style.css" text="Σύνδεση" />
+            <Button id="cancelBtn" fx:id="BTNcancel" cancelButton="true" layoutX="137.0" layoutY="409.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="37.0" prefWidth="451.0" stylesheets="@../CSS%20code/initServer_style.css" text="Εκκαθάριση" />
+            <Label id="serverStatus" fx:id="LBLstatus" contentDisplay="TEXT_ONLY" layoutX="138.0" layoutY="302.0" prefHeight="61.0" prefWidth="451.0" stylesheets="@../CSS%20code/initServer_style.css" text="Label" wrapText="true" />
+            <Button id="exitBtn" layoutX="673.0" layoutY="2.0" mnemonicParsing="false" onAction="#exitButtonClicked" stylesheets="@../CSS%20code/initServer_style.css">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CLOSE" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

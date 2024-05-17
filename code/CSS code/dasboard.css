@@ -1,0 +1,81 @@
+#leftSide {
+    -fx-background-color: linear-gradient(to bottom right, #cc9cbc, #d294ee);
+}
+
+#rightSide {
+    -fx-background-color: linear-gradient(to bottom right, #F2D7D9, #D3CEDF, #9CB4CC, #748DA6);
+    -fx-background-size: 400% 400%;
+}
+
+#exitBtn {
+    -fx-background-radius:20px;
+    -fx-border-radius: 20px;
+    -fx-background-color: transparent;
+}
+
+#exitBtn:hover {
+    -fx-background-radius:20px;
+    -fx-border-radius: 20px;
+    -fx-background-color: #ff80bf;
+}
+
+#header{
+    -fx-background-color: #ececec
+}
+
+#tableColumn{
+    -fx-background-color: blue;
+}
+
+.botton {
+    -fx-background-radius:20px;
+    -fx-border-radius: 20px;
+    -fx-background-color: transparent;
+}
+
+.botton:hover{
+    -fx-background-radius:20px;
+    -fx-border-radius: 20px;
+    -fx-background-color: #F2D7D9;
+}
+
+#search:hover{
+    -fx-background-color: rgb(185, 237, 251);
+}
+
+#add:hover{
+    -fx-background-color: rgb(195, 255, 175);
+}
+
+.list{
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.datepicker{
+    -fx-background-color: transparent;
+}
+
+.textField{
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-color: #d5d5d5;
+    -fx-prompt-text-fill: rgb(44, 44, 44);
+}
+
+.table{
+    -fx-background-color: rgb(213, 213, 213);
+}
+
+.TEXT .content{
+    -fx-background-color: #d5d5d5;
+    -fx-prompt-text-fill: rgb(44, 44, 44);
+}
+
+#rightSideBackground{
+    -fx-background-color: red;
+}
+
+#itTextField {
+    -fx-background-color: rgba(249, 221, 229, 0.793);
+}

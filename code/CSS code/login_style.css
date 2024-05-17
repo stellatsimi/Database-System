@@ -1,0 +1,106 @@
+/*
+ * Color palette https://colorhunt.co/palette/f2d7d9d3cedf9cb4cc748da6
+ * #F2D7D9 rgb(242, 215, 217)
+ * #D3CEDF rgb(211, 206, 223)
+ * #9CB4CC rgb(156, 180, 204)
+ * #748DA6 rgb(116,141,166)
+ */
+
+#titleAgencyLabel {
+    -fx-font-size: 30;
+}
+
+#leftSide {
+    -fx-background-color: linear-gradient(to bottom right, #9CB4CC, #748DA6);
+}
+
+#rightSide {
+    -fx-background-color: linear-gradient(to top right, #F2D7D9, #D3CEDF);
+}
+
+#exitBtn {
+    -fx-background-radius:20px;
+    -fx-border-radius: 20px;
+    -fx-background-color: transparent;
+}
+
+#exitBtn:hover {
+    -fx-background-radius:20px;
+    -fx-border-radius: 20px;
+    -fx-background-color: #ff80bf;
+}
+
+#notificationLabel {
+    -fx-text-fill: red;
+}
+
+#connectBtn {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #03e9f4;
+    -fx-position: absolute;
+    -fx-display: block;
+    -fx-pading: 10px 20px;
+    -fx-text-fill: #03e9f4;
+    -fx-font-size: 16px;
+    -fx-text-decoration: none;
+    -fx-overflow: hidden;
+    -fx-margin-top: 40px;
+    -fx-letter-spacing: 4px;
+    -fx-top: 0;
+    -fx-left: -100%;
+    -fx-width: 100%;
+    -fx-height: 2px;
+    -fx-background-color: transparent;
+    -fx-background-radius:5px;
+    -fx-border-radius: 5px;
+}
+#connectBtn:hover {
+    -fx-background-color: #03e9f4;
+    -fx-text-fill: #fff;
+    -fx-border-radius: 5px;
+}
+
+#cancelBtn {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #ff0000;
+    -fx-position: absolute;
+    -fx-display: block;
+    -fx-pading: 10px 20px;
+    -fx-text-fill: #ff0000;
+    -fx-font-size: 16px;
+    -fx-text-decoration: none;
+    -fx-overflow: hidden;
+    -fx-margin-top: 40px;
+    -fx-letter-spacing: 4px;
+    -fx-top: 0;
+    -fx-left: -100%;
+    -fx-width: 100%;
+    -fx-height: 2px;
+    -fx-background-color: transparent;
+    -fx-background-radius:5px;
+    -fx-border-radius: 5px;
+}
+#cancelBtn:hover {
+    -fx-background-color: #ff0000;
+    -fx-text-fill: #fff;
+    -fx-border-radius: 5px;
+}
+
+.textfield{
+    -fx-backround-color: linear-gradient(to bottom, #c5d9ed, #eee);
+    -fx-background-radius: 7px;
+    -fx-border-radius: 7px;
+    -fx-border-width: .2px;
+    -fx-border-color: #000;
+    -fx-font-size: 13px;
+    -fx-font-family: Tahoma;
+}
+.textfield:focused{
+    -fx-background-color: #fff;
+    -fx-border-color: linear-gradient(to bottom right, #9CB4CC, #748DA6);
+    -fx-border-width: .8px;
+    -fx-background-radius: 7px;
+    -fx-border-radius: 7px;
+}
